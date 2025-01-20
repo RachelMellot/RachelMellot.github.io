@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3668/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="generator" content="quarto-1.6.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pierre Dumont-Roty, Rachel Mellot, Chloé Martin">
+<meta name="dcterms.date" content="2025-01-20">
+
+<title>Étude Économétrique - Croissance économique</title>
+<style class="anchorjs"></style><style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="./Étude Économétrique - Croissance économique_files/clipboard.min.js.téléchargement"></script>
+<script src="./Étude Économétrique - Croissance économique_files/quarto.js.téléchargement"></script>
+<script src="./Étude Économétrique - Croissance économique_files/popper.min.js.téléchargement"></script>
+<script src="./Étude Économétrique - Croissance économique_files/tippy.umd.min.js.téléchargement"></script>
+<script src="./Étude Économétrique - Croissance économique_files/anchor.min.js.téléchargement"></script>
+<link href="./Étude Économétrique - Croissance économique_files/tippy.css" rel="stylesheet">
+<link href="./Étude Économétrique - Croissance économique_files/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="./Étude Économétrique - Croissance économique_files/bootstrap.min.js.téléchargement"></script>
+<link href="./Étude Économétrique - Croissance économique_files/bootstrap-icons.css" rel="stylesheet">
+<link href="./Étude Économétrique - Croissance économique_files/bootstrap-b8d30c7eeda119d43de224048e70de8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="./Étude Économétrique - Croissance économique_files/kePrint.js.téléchargement"></script>
+
+<link href="./Étude Économétrique - Croissance économique_files/lightable.css" rel="stylesheet">
+
+
+  <script src="./Étude Économétrique - Croissance économique_files/polyfill.min.js.téléchargement"></script>
+  <script src="./Étude Économétrique - Croissance économique_files/tex-chtml-full.js.téléchargement" type="text/javascript"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<style>.ansi-display{font-family:monospace;white-space:pre-wrap;--ansiBlack: #000000;--ansiRed: #cd3131;--ansiGreen: #00BC00;--ansiYellow: #949800;--ansiBlue: #0451a5;--ansiMagenta: #bc05bc;--ansiCyan: #0598bc;--ansiWhite: #555555;--ansiBrightBlack: #666666;--ansiBrightRed: #cd3131;--ansiBrightGreen: #14CE14;--ansiBrightYellow: #b5ba00;--ansiBrightBlue: #0451a5;--ansiBrightMagenta: #bc05bc;--ansiBrightCyan: #0598bc;--ansiBrightWhite: #a5a5a5}.dark-mode .ansi-display{--ansiBlack: #000000;--ansiRed: #cd3131;--ansiGreen: #0DBC79;--ansiYellow: #e5e510;--ansiBlue: #2472c8;--ansiMagenta: #bc3fbc;--ansiCyan: #11a8cd;--ansiWhite: #e5e5e5;--ansiBrightBlack: #666666;--ansiBrightRed: #f14c4c;--ansiBrightGreen: #23d18b;--ansiBrightYellow: #f5f543;--ansiBrightBlue: #3b8eea;--ansiBrightMagenta: #d670d6;--ansiBrightCyan: #29b8db;--ansiBrightWhite: #e5e5e5}@keyframes ansi-displaly-run-blink{50%{opacity:0}}.fui-FluentProvider h2{border-bottom:none;padding-bottom:0}</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  border-collapse: collapse;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  /* IE */ overflow: hidden;
+  /* others */ overflow: clip visible;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  /* IE */ overflow: hidden;
+  /* others */ overflow: visible clip;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c1D44A.TEX-I::before {
+  padding: 0.683em 1.048em 0.022em 0;
+  content: "W";
+}
+
+mjx-c.mjx-c1D45C.TEX-I::before {
+  padding: 0.441em 0.485em 0.011em 0;
+  content: "o";
+}
+
+mjx-c.mjx-c1D45F.TEX-I::before {
+  padding: 0.442em 0.451em 0.011em 0;
+  content: "r";
+}
+
+mjx-c.mjx-c1D459.TEX-I::before {
+  padding: 0.694em 0.298em 0.011em 0;
+  content: "l";
+}
+
+mjx-c.mjx-c1D451.TEX-I::before {
+  padding: 0.694em 0.52em 0.01em 0;
+  content: "d";
+}
+
+mjx-c.mjx-c1D437.TEX-I::before {
+  padding: 0.683em 0.828em 0 0;
+  content: "D";
+}
+
+mjx-c.mjx-c1D452.TEX-I::before {
+  padding: 0.442em 0.466em 0.011em 0;
+  content: "e";
+}
+
+mjx-c.mjx-c1D463.TEX-I::before {
+  padding: 0.443em 0.485em 0.011em 0;
+  content: "v";
+}
+
+mjx-c.mjx-c1D45D.TEX-I::before {
+  padding: 0.442em 0.503em 0.194em 0;
+  content: "p";
+}
+
+mjx-c.mjx-c1D45A.TEX-I::before {
+  padding: 0.442em 0.878em 0.011em 0;
+  content: "m";
+}
+
+mjx-c.mjx-c1D45B.TEX-I::before {
+  padding: 0.442em 0.6em 0.011em 0;
+  content: "n";
+}
+
+mjx-c.mjx-c1D461.TEX-I::before {
+  padding: 0.626em 0.361em 0.011em 0;
+  content: "t";
+}
+
+mjx-c.mjx-c1D43C.TEX-I::before {
+  padding: 0.683em 0.504em 0 0;
+  content: "I";
+}
+
+mjx-c.mjx-c1D456.TEX-I::before {
+  padding: 0.661em 0.345em 0.011em 0;
+  content: "i";
+}
+
+mjx-c.mjx-c1D450.TEX-I::before {
+  padding: 0.442em 0.433em 0.011em 0;
+  content: "c";
+}
+
+mjx-c.mjx-c1D44E.TEX-I::before {
+  padding: 0.441em 0.529em 0.01em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c1D460.TEX-I::before {
+  padding: 0.442em 0.469em 0.01em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c1D43A.TEX-I::before {
+  padding: 0.705em 0.786em 0.022em 0;
+  content: "G";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c1D454.TEX-I::before {
+  padding: 0.442em 0.477em 0.205em 0;
+  content: "g";
+}
+
+mjx-c.mjx-c1D464.TEX-I::before {
+  padding: 0.443em 0.716em 0.011em 0;
+  content: "w";
+}
+
+mjx-c.mjx-c210E.TEX-I::before {
+  padding: 0.694em 0.576em 0.011em 0;
+  content: "h";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c1D6FD.TEX-I::before {
+  padding: 0.705em 0.566em 0.194em 0;
+  content: "\3B2";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c2B::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "+";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c1D438.TEX-I::before {
+  padding: 0.68em 0.764em 0 0;
+  content: "E";
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c1D462.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "u";
+}
+
+mjx-c.mjx-c1D466.TEX-I::before {
+  padding: 0.442em 0.49em 0.205em 0;
+  content: "y";
+}
+
+mjx-c.mjx-c34::before {
+  padding: 0.677em 0.5em 0 0;
+  content: "4";
+}
+
+mjx-c.mjx-c1D453.TEX-I::before {
+  padding: 0.705em 0.55em 0.205em 0;
+  content: "f";
+}
+
+mjx-c.mjx-c35::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "5";
+}
+
+mjx-c.mjx-c1D716.TEX-I::before {
+  padding: 0.431em 0.406em 0.011em 0;
+  content: "\3F5";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2200::before {
+  padding: 0.694em 0.556em 0.022em 0;
+  content: "\2200";
+}
+
+mjx-c.mjx-c2208::before {
+  padding: 0.54em 0.667em 0.04em 0;
+  content: "\2208";
+}
+
+mjx-c.mjx-c5B::before {
+  padding: 0.75em 0.278em 0.25em 0;
+  content: "[";
+}
+
+mjx-c.mjx-c39::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "9";
+}
+
+mjx-c.mjx-c5D::before {
+  padding: 0.75em 0.278em 0.25em 0;
+  content: "]";
+}
+</style><style data-make-styles-bucket="d" data-priority="0"></style><style id="fui-FluentProviderr0"></style></head>
+
+<body class="fullcontent quarto-light" data-tabster="{&quot;root&quot;:{}}">
+
+<i tabindex="0" role="none" data-tabster-dummy="" aria-hidden="true" style="position: fixed; height: 1px; width: 1px; opacity: 0.001; z-index: -1; content-visibility: hidden; top: 0px; left: 0px;"></i><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Étude Économétrique - Croissance économique</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Pierre Dumont-Roty, Rachel Mellot, Chloé Martin </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 20, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- # Importation packages -->
+<!-- # Importation base de données -->
+<!-- données pays EU -->
+<!--Données pays du monde -->
+<section id="présentation-de-la-question-de-recherche" class="level1">
+<h1>Présentation de la question de recherche</h1>
+<p>La croissance économique est un indicateur central pour évaluer la performance des économies. Comprendre les déterminants de la croissance du PIB est un enjeu pour les économistes, les investisseurs mais également les décideurs politiques. La croissance économique, bien qu’importante, demeure complexe à expliquer en raison de l’interconnexion d’une multitude de facteurs macroéconomiques, structurels et sociaux.</p>
+<p>Dans le cadre de cette étude, nous avons mobilisé des données de la base <strong><span class="math inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi><mi>o</mi><mi>r</mi><mi>l</mi><mi>d</mi><mi>D</mi><mi>e</mi><mi>v</mi><mi>e</mi><mi>l</mi><mi>o</mi><mi>p</mi><mi>e</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>I</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>s</mi><mo stretchy="false">(</mo><mi>W</mi><mi>D</mi><mi>I</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span></strong>. Nous avons fait le choix de nous concentrer sur 19 pays répartis entre l’Europe, l’Amérique, l’Asie, l’Afrique et l’Océanie : la France, l’Allemagne, l’Italie, la Norvège, le Royaume-Uni, la Grèce, l’Espagne, la Suisse, la Belgique, les États-Unis, le Brésil, le Mexique, la Chine, l’Inde, le Japon, l’Afrique du Sud, le Kenya, l’Australie et la Nouvelle-Zélande. Ce choix de pays repose sur leur diversité géographique, économique et sociale, offrant un cadre global pour analyser les dynamiques de croissance dans des contextes variés.</p>
+<p>Notre sélection des variables explicatives repose sur des facteurs clés couramment identifiés dans la littérature économique, tels que : le pourcentage d’exportations, l’espérance de vie, le taux d’inflation, le taux de chômage. Ces variables permettent de capturer des dimensions économiques et sociales fondamentales susceptibles d’influencer la croissance.</p>
+<p>A travers une analyse descriptive et économétrique, nous visons à identifier et quantifier l’influence des facteurs retenus sur la performance économique des pays étudiés, tout en tenant compte des particularités propres à chaque région du monde.</p>
+</section>
+<section id="présentation-des-données" class="level1">
+<h1>Présentation des données</h1>
+<p>Dans cette section, nous détaillons les données utilisées pour notre étude. En nous concentrant sur des pays européens économiquement développés, nous avons sélectionné un ensemble de variables clés reconnues pour leur influence sur la croissance du PIB (% annuel). Ces variables explicatives sont les suivantes :</p>
+<ul>
+<li><strong>Les exportations (en % du PIB)</strong> : une mesure de l’ouverture commerciale des pays et de leur compétitivité sur les marchés internationaux.</li>
+<li><strong>L’investissement (formation brute de capital fixe)</strong> : un indicateur essentiel pour évaluer le rôle des dépenses en infrastructures, en équipements et en technologies dans la croissance économique.</li>
+<li><strong>L’espérance de vie à la naissance (en années)</strong> : une mesure indirecte du développement humain et de la qualité du système de santé, qui peut refléter l’impact des conditions sociales sur la productivité.</li>
+<li><strong>Le taux d’inflation (% annuel)</strong> : un facteur macroéconomique clé influençant la stabilité des prix, le pouvoir d’achat et les décisions d’investissement.</li>
+<li><strong>Le taux de chômage (% de la population active)</strong> : un indicateur du niveau d’emploi et du dynamisme du marché du travail.</li>
+</ul>
+<p>Pour garantir la pertinence et la cohérence de notre analyse, nous avons choisi de nous concentrer sur une période récente de cinq ans, allant de 2018 à 2022. Cette période nous permet de capturer des dynamiques économiques contemporaines tout en évitant des biais liés à des données trop anciennes ou instables.</p>
+<p>Enfin, pour donner un aperçu concret de notre base de données, nous présentons ci-dessous un extrait des données de panel mobilisées dans cette étude.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Tableau des résultats économétriques</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">country</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">growth_gdp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">exports</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">investment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">life_expectancy</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">inflation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">unemployment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: right;">2.8784697</td>
+<td style="text-align: right;">21.89409</td>
+<td style="text-align: right;">24.64641</td>
+<td style="text-align: right;">82.74878</td>
+<td style="text-align: right;">1.9114009</td>
+<td style="text-align: right;">5.300</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">2019</td>
+<td style="text-align: right;">2.1715451</td>
+<td style="text-align: right;">24.15968</td>
+<td style="text-align: right;">23.39129</td>
+<td style="text-align: right;">82.90000</td>
+<td style="text-align: right;">1.6107679</td>
+<td style="text-align: right;">5.159</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">2020</td>
+<td style="text-align: right;">-0.1195907</td>
+<td style="text-align: right;">24.02674</td>
+<td style="text-align: right;">22.42773</td>
+<td style="text-align: right;">83.20000</td>
+<td style="text-align: right;">0.8469055</td>
+<td style="text-align: right;">6.456</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">2021</td>
+<td style="text-align: right;">2.1111681</td>
+<td style="text-align: right;">22.05668</td>
+<td style="text-align: right;">22.93724</td>
+<td style="text-align: right;">83.30000</td>
+<td style="text-align: right;">2.8639104</td>
+<td style="text-align: right;">5.116</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">2022</td>
+<td style="text-align: right;">4.2423856</td>
+<td style="text-align: right;">25.53159</td>
+<td style="text-align: right;">23.76819</td>
+<td style="text-align: right;">83.20000</td>
+<td style="text-align: right;">6.5940967</td>
+<td style="text-align: right;">3.701</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: left;">2018</td>
+<td style="text-align: right;">1.8779686</td>
+<td style="text-align: right;">83.48306</td>
+<td style="text-align: right;">25.55158</td>
+<td style="text-align: right;">81.59512</td>
+<td style="text-align: right;">2.0531650</td>
+<td style="text-align: right;">5.948</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: left;">2019</td>
+<td style="text-align: right;">2.4428901</td>
+<td style="text-align: right;">82.96743</td>
+<td style="text-align: right;">24.67568</td>
+<td style="text-align: right;">81.99512</td>
+<td style="text-align: right;">1.4368196</td>
+<td style="text-align: right;">5.360</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: left;">2020</td>
+<td style="text-align: right;">-4.7929839</td>
+<td style="text-align: right;">79.19687</td>
+<td style="text-align: right;">24.06857</td>
+<td style="text-align: right;">80.69512</td>
+<td style="text-align: right;">0.7407918</td>
+<td style="text-align: right;">5.555</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: left;">2021</td>
+<td style="text-align: right;">6.2025540</td>
+<td style="text-align: right;">89.62961</td>
+<td style="text-align: right;">24.44248</td>
+<td style="text-align: right;">81.79024</td>
+<td style="text-align: right;">2.4402485</td>
+<td style="text-align: right;">6.264</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: left;">2022</td>
+<td style="text-align: right;">4.2334318</td>
+<td style="text-align: right;">95.26780</td>
+<td style="text-align: right;">26.93674</td>
+<td style="text-align: right;">81.69756</td>
+<td style="text-align: right;">9.5975117</td>
+<td style="text-align: right;">5.558</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0; border: 0;"><sup>*</sup> Source : Base WDI, analyse économétrique</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="analyse-descriptive-des-données" class="level1">
+<h1>Analyse descriptive des données</h1>
+<p>Afin de mieux appréhender les caractéristiques de notre échantillon et d’explorer les relations potentielles entre les variables étudiées, nous avons réalisé une analyse descriptive des données. Cette étape est essentielle pour avoir une vue d’ensemble sur la distribution et les tendances des variables, tout en identifiant d’éventuelles anomalies ou variations significatives.</p>
+<p>Nous présentons ci-dessous un résumé des principales statistiques descriptives des variables retenues pour l’étude : la croissance du PIB, les exportations, l’investissement, l’espérance de vie, l’inflation et le taux de chômage. Ces statistiques couvrent un échantillon de 19 pays sur la période récente de 2018 à 2022.</p>
+<p>Les indicateurs clés comme la moyenne, l’écart-type, les valeurs minimales et maximales permettent de mieux comprendre les caractéristiques structurelles des variables et les variations observées entre les pays ou au cours de la période.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly.</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Résumé des statistiques descriptives des variables (2018-2022)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Indicators</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Min</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">growth_gdp</td>
+<td style="text-align: right;">1.927896</td>
+<td style="text-align: right;">4.271225</td>
+<td style="text-align: right;">-10.940071</td>
+<td style="text-align: right;">9.689592</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">exports</td>
+<td style="text-align: right;">32.815718</td>
+<td style="text-align: right;">18.659712</td>
+<td style="text-align: right;">9.641869</td>
+<td style="text-align: right;">95.267802</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">investment</td>
+<td style="text-align: right;">23.242411</td>
+<td style="text-align: right;">6.479840</td>
+<td style="text-align: right;">12.099660</td>
+<td style="text-align: right;">43.793475</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">life_expectancy</td>
+<td style="text-align: right;">78.306119</td>
+<td style="text-align: right;">6.590840</td>
+<td style="text-align: right;">61.427000</td>
+<td style="text-align: right;">84.560000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">inflation</td>
+<td style="text-align: right;">3.210631</td>
+<td style="text-align: right;">2.644982</td>
+<td style="text-align: right;">-1.247984</td>
+<td style="text-align: right;">9.645260</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">unemployment</td>
+<td style="text-align: right;">7.644432</td>
+<td style="text-align: right;">5.864807</td>
+<td style="text-align: right;">2.351000</td>
+<td style="text-align: right;">28.838000</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>L’analyse des statistiques descriptives révèle des caractéristiques intéressantes de notre échantillon. Parmi les variables étudiées, l’espérance de vie se distingue par une certaine variabilité entre les pays, bien qu’elle reste relativement élevée dans l’ensemble. Tandis que des pays développés tels que la France, l’Allemagne, les États-Unis ou le Japon affichent des espérances de vie proches les unes des autres, certains pays comme le Brésil ou l’Afrique du Sud présentent des niveaux plus faibles, ce qui témoigne d’écarts notables dans les systèmes de santé et les conditions de vie, malgré une dynamique de croissance économique parfois comparable. Cette hétérogénéité dans l’espérance de vie reflète la diversité des niveaux de développement humain dans notre échantillon.</p>
+<p>En revanche, une hétérogénéité marquée apparaît pour les autres variables :</p>
+<ul>
+<li><strong>Les exportations</strong> (% du PIB) et <strong>l’investissement</strong> montrent des écarts significatifs, traduisant des structures économiques différentes. Certaines économies, comme celles des États-Unis ou de la Chine, sont davantage orientées vers le commerce international ou l’accumulation de capital, tandis que d’autres, comme l’Inde ou l’Afrique du Sud, peuvent être moins intégrées à l’économie mondiale.</li>
+<li><strong>Le taux d’inflation</strong> et <strong>le taux de chômage</strong> varient également de manière marquée, ce qui reflète des politiques macroéconomiques distinctes ainsi que des spécificités nationales dans la gestion du marché du travail ou de la stabilité des prix. Par exemple, les taux d’inflation sont relativement bas dans les économies développées, mais peuvent être plus élevés dans des pays comme le Brésil ou le Mexique, qui font face à des défis économiques particuliers.</li>
+<li>Enfin, <strong>la croissance du PIB</strong> présente des variations notables, signe que ces pays, bien qu’économiquement comparables dans certains cas, suivent des trajectoires de croissance distinctes sur la période étudiée (2018-2022). Cela est particulièrement visible entre les économies émergentes comme la Chine et l’Inde, d’une part, et les pays plus développés, d’autre part.</li>
+</ul>
+<p>Ces premières observations soulignent à la fois des similitudes structurantes entre les pays développés (comme l’espérance de vie élevée et stable) et des différences significatives dans les dynamiques économiques, en particulier entre les économies développées et émergentes, qui seront explorées davantage dans les sections suivantes.</p>
+<section id="représentation-des-variables" class="level2">
+<h2 class="anchored" data-anchor-id="représentation-des-variables">Représentation des variables<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#repr%C3%A9sentation-des-variables" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./Étude Économétrique - Croissance économique_files/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="evolution-de-la-croissance-du-pib" class="level2">
+<h2 class="anchored" data-anchor-id="evolution-de-la-croissance-du-pib">Evolution de la croissance du PIB<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#evolution-de-la-croissance-du-pib" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Afin d’observer l’évolution temporelle de la croissance du PIB pour chaque pays de notre échantillon, nous avons tracé la série chronologique de cette variable sur la période 2018-2022. Le graphique ci-dessous présente la croissance du PIB (%) par pays, ce qui permet de visualiser les tendances économiques pour chaque nation.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./Étude Économétrique - Croissance économique_files/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Le graphique nous permet de tirer plusieurs conclusions importantes concernant la dynamique économique des pays étudiés.</p>
+<p>Nous observons que, bien que les pays de notre échantillon suivent une tendance similaire au fil du temps, avec des disparités marquées apparaissent entre eux, particulièrement après la crise de 2020. Plus précisément :</p>
+<p>Une chute importante de la croissance du PIB est visible en 2020, année marquée par les effets dévastateurs de la pandémie de COVID-19. Toutefois, cette baisse n’a pas été homogène. La Chine, en tête, a montré une reprise rapide après le choc initial, tandis que des pays comme le Royaume-Uni ou l’Espagne ont connu des baisses de croissance supérieures à 10%, ce qui reflète probablement l’impact majeur de la crise sanitaire sur leurs économies respectives. Ces pays ont été confrontés à de sévères confinements, à la réduction des activités économiques et à des perturbations dans le commerce international.</p>
+<p>En revanche, certains pays, comme e Japon, l’Australie, la Norvèges ou la Suisse, ont connu une évolution plus favorable, avec une chute de la croissance moins prononcée, voire une reprise plus rapide. Cela pourrait être attribué à des facteurs spécifiques, tels qu’une meilleure gestion de la crise sanitaire, des secteurs économiques moins vulnérables à la pandémie, ou encore des mécanismes de soutien gouvernementaux plus efficaces.</p>
+<p>Hormis la crise de 2020, des divergences persistantes sont visibles : des pays comme la Chine ou l’Inde affichent des taux de croissance du PIB bien plus élevés que des économies européennes ou d’Amérique du Sud. Par ailleurs, les États-Unis et le Japon suivent des trajectoires relativement stables, tandis que des pays comme le Royaume-Uni ou l’Espagne connaissent encore des fluctuations importantes. Ces observations suggèrent que la résilience économique face à des crises mondiales peut varier en fonction des politiques économiques, des structures industrielles et des réponses sanitaires nationales.</p>
+<p>Ce premier aperçu nous incite à aller plus loin dans l’analyse pour comprendre quelles variables spécifiques peuvent expliquer ces variations dans la croissance du PIB. À partir de ce point, nous pourrions développer des modèles économétriques pour tester l’influence de facteurs tels que l’investissement, l’inflation ou le taux de chômage sur ces fluctuations.</p>
+</section>
+<section id="analyse-des-relations-entre-les-variables-explicatives-matrice-de-corrélation" class="level2">
+<h2 class="anchored" data-anchor-id="analyse-des-relations-entre-les-variables-explicatives-matrice-de-corrélation">Analyse des relations entre les variables explicatives : Matrice de corrélation<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#analyse-des-relations-entre-les-variables-explicatives-matrice-de-corr%C3%A9lation" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Pour mieux comprendre les interactions et relations linéaires entre nos variables explicatives, nous avons calculé une matrice de corrélation et généré un graphique de corrélation associé. Ce dernier nous permet de visualiser rapidement les liens entre les différentes variables économiques et de mettre en évidence les relations qui pourraient influencer la croissance du PIB.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.95 loaded</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="./Étude Économétrique - Croissance économique_files/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>L’analyse de la matrice de corrélation nous permet de dégager plusieurs observations clés concernant les relations entre les variables :</p>
+<p>Nous observons une corrélation négative entre l’investissement et le taux de chômage, ce qui est cohérent avec les attentes économiques théoriques. En effet, un niveau plus élevé d’investissement (notamment dans des projets d’infrastructure ou de nouvelles technologies) tend à créer des emplois, ce qui réduit le taux de chômage. Cette relation suggère qu’une politique d’investissement public ou privé peut avoir un impact positif sur l’emploi.</p>
+<p>Une corrélation négative entre l’espérance de vie et l’inflation est également observée. Cela suggère qu’une plus haute espérance de vie est associée à un taux d’inflation plus faible. Cela pourrait indiquer que les pays avec une population vivant plus longtemps bénéficient d’une plus grande stabilité économique, ou encore que des économies plus développées et stables (ayant tendance à offrir une meilleure qualité de vie) ont des taux d’inflation plus maîtrisés.</p>
+<p>Par ailleurs, une corrélation positive modérée entre l’inflation et la croissance du PIB est également visible. Cela pourrait refléter une relation classique dans les modèles économiques, où une inflation modérée est souvent associée à une économie en croissance, résultant d’une demande accrue et de la stimulation des activités économiques. Toutefois, cette relation peut également indiquer des pressions inflationnistes dues à une demande excédentaire dans certaines économies.</p>
+<p>Les autres variables (comme les exportations, l’espérance de vie et l’inflation) n’affichent pas de corrélations très marquées entre elles, ce qui pourrait suggérer qu’elles agissent de manière indépendante sur la croissance économique, ou que des facteurs externes influencent plus directement ces variables.</p>
+<p>Cependant, bien que la matrice révèle des liens intéressants, il est important de noter que la corrélation ne prouve pas de causalité. Pour tester des relations causales et approfondir notre compréhension des mécanismes sous-jacents, il serait pertinent de mener des analyses économétriques plus avancées, telles que des modèles de régression, afin d’isoler les effets de chaque variable sur la croissance du PIB.</p>
+</section>
+</section>
+<section id="présentation-des-différentes-spécifications-possibles" class="level1">
+<h1>Présentation des différentes spécifications possibles</h1>
+<p>Pour analyser la relation entre la croissance économique (croissance du PIB) et les variables explicatives telles que les exportations, l’investissement, l’espérance de vie, l’inflation et le taux de chômage, nous avons spécifié plusieurs modèles économétriques. Nous avons spécifié un modèle poolé, un modèle à effets fixes (within) et un modèle à effets aléatoires. Nous précisons que, pour tous ces modèles, les erreurs types ont été corrigées.</p>
+<p>Les modèles sont basés sur des données de panel couvrant plusieurs pays dans le monde entier sur la période de 2018 à 2022. Les variables explicatives sont mesurées en termes absolus, mais afin de mieux capturer les relations relatives entre les variables, nous avons transformé certaines de ces variables en logarithmes. Cette transformation est particulièrement pertinente pour les variables économiques ayant une forte hétérogénéité dans leur échelle de mesure, comme les exportations et l’investissement.</p>
+<p><span class="math display"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="1" style="font-size: 113.1%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D716 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c2200"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="2"><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c2200"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="2"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mi>G</mi><mi>D</mi><mi>P</mi><mi>g</mi><mi>r</mi><mi>o</mi><mi>w</mi><mi>t</mi><msub><mi>h</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mrow data-mjx-texclass="ORD"><mn>1</mn></mrow></msub><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mi>E</mi><mi>x</mi><mi>p</mi><mi>o</mi><mi>r</mi><mi>t</mi><msub><mi>s</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>β</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msub><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mi>i</mi><mi>n</mi><mi>v</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>m</mi><mi>e</mi><mi>n</mi><msub><mi>t</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>β</mi><mrow data-mjx-texclass="ORD"><mn>3</mn></mrow></msub><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mi>u</mi><mi>n</mi><mi>e</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>m</mi><mi>e</mi><mi>n</mi><msub><mi>t</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>β</mi><mrow data-mjx-texclass="ORD"><mn>4</mn></mrow></msub><mi>l</mi><mi>n</mi><mo stretchy="false">(</mo><mi>i</mi><mi>n</mi><mi>f</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>β</mi><mrow data-mjx-texclass="ORD"><mn>5</mn></mrow></msub><mi>l</mi><mi>i</mi><mi>f</mi><msub><mi>e</mi><mi>e</mi></msub><mi>x</mi><mi>p</mi><mi>e</mi><mi>c</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><msub><mi>y</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>ϵ</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>t</mi></mrow></msub><mo>,</mo><mi mathvariant="normal">∀</mi><mi>i</mi><mo>∈</mo><mo stretchy="false">[</mo><mn>1</mn><mo>,</mo><mn>9</mn><mo stretchy="false">]</mo><mo>,</mo><mi mathvariant="normal">∀</mi><mi>t</mi><mo>∈</mo><mo stretchy="false">[</mo><mn>1</mn><mo>,</mo><mn>11</mn><mo stretchy="false">]</mo></math></mjx-assistive-mml></mjx-container></span> L’utilisation du logarithme sur certaines variables permet de lineariser les relations, travailler avec des taux de croissance relatifs, et réduire l’asymétrie des données. En résumé, l’utilisation du logarithme permet de rendre les résultats plus interprétables et de mieux capturer les effets économiques sous-jacents.</p>
+<section id="modèle-poolé" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-poolé">Modèle poolé<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#mod%C3%A8le-pool%C3%A9" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Le modèle poolé suppose que toutes les observations sont combinées en une seule base de données, sans distinction entre les individus (pays dans notre cas). Autrement dit, tous les pays sont supposés être identiques, sans effets individuels spécifiques.</p>
+<p>Ce modèle est utilisé lorsque l’on considère que les relations entre les variables explicatives et la variable dépendante sont homogènes à travers les différents pays. Le modèle poolé n’inclut pas d’effets spécifiques à chaque pays, et suppose donc que toutes les observations proviennent de la même distribution.</p>
+<pre><code>Warning in get(.Generic)(x, ...): Production de NaN
+Warning in get(.Generic)(x, ...): Production de NaN</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Modèle Poolé</strong>
+</caption>
+<tbody><tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(growth_gdp)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(exports)
+</td>
+<td>
+0.012
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.135)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(investment)
+</td>
+<td>
+0.937<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.295)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+life_expectancy
+</td>
+<td>
+-0.013
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.019)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(inflation)
+</td>
+<td>
+0.248<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.097)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(unemployment)
+</td>
+<td>
+0.172
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.225)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-1.422
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.801)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.186
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.127
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+3.118<sup>**</sup> (df = 5; 68)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></em></sup><em>p&lt;0.1; <sup><strong></strong></sup><strong>p&lt;0.05; <sup></sup></strong></em>p&lt;0.01
+</td>
+</tr>
+</tbody></table>
+<p>Après estimation de ce modèle, nous avons trouvé les résultats suivants :</p>
+<ul>
+<li><strong>Tous les coefficients sont positifs</strong>, indiquant que les variables explicatives ont, en moyenne, un effet positif sur la croissance du PIB. Cependant, une exception notable concerne l’espérance de vie. En effet, pour chaque année supplémentaire d’espérance de vie, on observe une baisse de 1,3% du taux de croissance du PIB.</li>
+<li><strong>Le coefficient de l’investissement est hautement significatif</strong> (p-value &lt; 0.01), ce qui témoigne d’un effet positif et substantiel sur la croissance du PIB. En effet, une augmentation de 1% des investissements entraîne une hausse de 0.937 point de pourcentage dans la croissance du PIB. Cela met en évidence l’importance de l’investissement en tant que moteur de la croissance économique, ce qui est conforme à la théorie économique qui postule que l’accumulation de capital stimule l’activité économique.</li>
+<li>Le coefficient de <strong>l’inflation est modérément significatif</strong> (p-value &lt; 0.05), suggérant que l’inflation exerce un effet positif sur la croissance du PIB. Bien que cet effet soit moins marqué que celui de l’investissement, il reste pertinent. Cela pourrait refléter une relation où une inflation modérée stimule la demande et l’activité économique, en particulier si elle est perçue comme un signe de dynamisme économique.</li>
+<li>Enfin, le coefficient de la variable “exports” n’est pas statistiquement significatif (p-value &gt; 0.1), ce qui suggère que, dans le cadre de ce modèle, les exportations n’ont pas d’impact significatif sur la croissance du PIB.</li>
+</ul>
+<p>Les résultats globalement montrent plusieurs coefficients peu significatifs, ce qui pourrait indiquer que la spécification du modèle poolé ne capture pas adéquatement les effets spécifiques à chaque pays et ne reflète pas bien la réalité des données. L’absence de différenciation entre les pays pourrait masquer des relations économiques sous-jacentes, suggérant qu’un modèle prenant en compte des effets fixes ou aléatoires pourrait mieux rendre compte des particularités économiques de chaque nation. Cette limite méthodologique appelle à une exploration plus approfondie avec des modèles plus sophistiqués qui tiennent compte de l’hétérogénéité entre les pays.</p>
+</section>
+<section id="modèle-within" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-within">Modèle within<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#mod%C3%A8le-within" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Le modèle within (modèle à effets fixes) suppose que chaque pays possède un effet spécifique, constant au fil du temps. L’objectif de ce modèle est de contrôler les différences non observées entre les pays qui ne changent pas au cours du temps. Cela permet de se concentrer sur l’effet des variables explicatives au sein de chaque pays.</p>
+<pre><code>Warning in get(.Generic)(x, ...): Production de NaN
+Warning in get(.Generic)(x, ...): Production de NaN</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Modèle Within</strong>
+</caption>
+<tbody><tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(growth_gdp)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(exports)
+</td>
+<td>
+0.671
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.899)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(investment)
+</td>
+<td>
+0.479
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.116)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+life_expectancy
+</td>
+<td>
+-0.246<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.073)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(inflation)
+</td>
+<td>
+0.306<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.120)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(unemployment)
+</td>
+<td>
+0.837
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.695)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.359
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.064
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+5.606<sup>***</sup> (df = 5; 50)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></em></sup><em>p&lt;0.1; <sup><strong></strong></sup><strong>p&lt;0.05; <sup></sup></strong></em>p&lt;0.01
+</td>
+</tr>
+</tbody></table>
+<p>Dans cette estimation, plusieurs résultats importants émergent, notamment concernant les coefficients des variables :</p>
+<ul>
+<li>Le coefficient associé à l’espérance de vie devient désormais significatif et beaucoup plus fort que dans le modèle poolé mais il reste cependant toujours le seul coefficients à jouer négativement sur le taux de croissance du PIB.</li>
+<li>Le taux d’inflation reste une variable significative dans le modèle. Une augmentation de 1 % du taux d’inflation conduit à une augmentation de 0.306 % du taux de croissance du PIB, en moyenne. Ce résultat peut suggérer qu’une inflation modérée est souvent liée à une expansion économique, selon la théorie économique classique où une certaine inflation stimule la demande globale.</li>
+<li>Une augmentation de 1 % du taux de chômage fait augmenter le taux de croissance du PIB de 0.837 %, toutes choses égales par ailleurs. Ce résultat semble contre-intuitif, car on s’attend généralement à ce qu’une hausse du chômage soit négativement corrélée avec la croissance économique.</li>
+</ul>
+<p>Les estimations obtenues dans le modèle à effets fixes semblent plus robustes et pertinentes par rapport à celles du modèle poolé, surtout en tenant compte du contexte spécifique des pays étudiés. En effet, il est bien connu qu’il existe des différences substantielles entre les pays, notamment au niveau de la structure économique, des politiques publiques et des facteurs sociaux. Le modèle à effets fixes permet de mieux capturer ces particularités nationales, ce qui le rend plus adapté à l’analyse des données de panel dans ce cas particulier.</p>
+</section>
+<section id="modèle-aléatoire" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-aléatoire">Modèle aléatoire<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#mod%C3%A8le-al%C3%A9atoire" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Le modèle à effets aléatoires suppose que les effets individuels (spécifiques à chaque pays) sont aléatoires et indépendants de la variable explicative. Ce modèle est particulièrement utile lorsque l’on suppose que les effets spécifiques à chaque pays peuvent varier de manière aléatoire et ne sont pas systématiques.</p>
+<pre><code>Warning in get(.Generic)(x, ...): Production de NaN
+Warning in get(.Generic)(x, ...): Production de NaN</code></pre>
+<table style="text-align:center">
+<caption>
+<strong>Random Effect Model</strong>
+</caption>
+<tbody><tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+log(growth_gdp)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(exports)
+</td>
+<td>
+0.143
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.142)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(investment)
+</td>
+<td>
+0.976<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.364)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+life_expectancy
+</td>
+<td>
+-0.024
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.017)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(inflation)
+</td>
+<td>
+0.290<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.088)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(unemployment)
+</td>
+<td>
+0.218
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.253)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-1.315
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.633)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.186
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.126
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+16.904<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></em></sup><em>p&lt;0.1; <sup><strong></strong></sup><strong>p&lt;0.05; <sup></sup></strong></em>p&lt;0.01
+</td>
+</tr>
+</tbody></table>
+<p>Les résultats du modèle à effets aléatoires fournissent des informations intéressantes :</p>
+<ul>
+<li>Le coefficient de l’investissement est très significatif, avec un coefficient de 0.976. Cela signifie qu’une augmentation de 1 % de l’investissement entraîne, en moyenne, une hausse de 0.976 % du taux de croissance du PIB. Cette relation confirme l’importance de l’investissement dans la stimulation de la croissance économique, en ligne avec les théories économiques qui associent un investissement plus élevé à une augmentation de la productivité et de l’activité économique.</li>
+<li>Le coefficient de l’inflation est également significatif. Il reflète l’impact de l’inflation sur la croissance économique, bien que l’effet reste modéré comparé à d’autres variables comme l’investissement.</li>
+<li>Pour une augmentation de 1 % des exportations, le PIB annuel augmente en moyenne de 0.143 %. Ce résultat suggère que les exportations jouent un rôle important dans la dynamique économique, bien que cet effet soit relativement modeste.</li>
+<li>Une hausse de 1 % du taux de chômage entraîne une augmentation de 0.218 % du taux de croissance du PIB, ce qui reste en ligne avec les résultats observés dans le modèle à effets fixes.</li>
+</ul>
+<p>Les coefficients du modèle à effets aléatoires sont très proches de ceux du modèle poolé, tant en termes de magnitudes que de significativité. Cela suggère que, bien que nous ayons modélisé les effets aléatoires pour tenir compte des différences spécifiques entre les pays, les résultats obtenus sont relativement similaires à ceux du modèle poolé. Cela peut indiquer que les différences non observées entre les pays ne jouent pas un rôle majeur dans l’explication de la croissance du PIB pour cet échantillon particulier.</p>
+</section>
+<section id="comparaison-des-trois-modèles" class="level2">
+<h2 class="anchored" data-anchor-id="comparaison-des-trois-modèles">Comparaison des trois modèles<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#comparaison-des-trois-mod%C3%A8les" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Afin de choisir le modèle le plus approprié pour notre étude, nous allons comparer les trois spécifications mentionnées ci-dessus. Les résultats sont présentés dans le tableau suivant. Ce tableau montre les coefficients estimés pour chaque variable explicative dans les trois modèles.</p>
+<table style="text-align:center">
+<caption>
+<strong>Comparaison des 3 modèles économétriques</strong>
+</caption>
+<tbody><tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+log(growth_gdp)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Pooling
+</td>
+<td>
+Fixed Effect
+</td>
+<td>
+Random
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(exports)
+</td>
+<td>
+0.012
+</td>
+<td>
+0.671
+</td>
+<td>
+0.143
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.135)
+</td>
+<td>
+(0.899)
+</td>
+<td>
+(0.142)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(investment)
+</td>
+<td>
+0.937<sup>***</sup>
+</td>
+<td>
+0.479
+</td>
+<td>
+0.976<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.295)
+</td>
+<td>
+(1.116)
+</td>
+<td>
+(0.364)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+life_expectancy
+</td>
+<td>
+-0.013
+</td>
+<td>
+-0.246<sup>***</sup>
+</td>
+<td>
+-0.024
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.019)
+</td>
+<td>
+(0.073)
+</td>
+<td>
+(0.017)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(inflation)
+</td>
+<td>
+0.248<sup>**</sup>
+</td>
+<td>
+0.306<sup>**</sup>
+</td>
+<td>
+0.290<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.097)
+</td>
+<td>
+(0.120)
+</td>
+<td>
+(0.088)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(unemployment)
+</td>
+<td>
+0.172
+</td>
+<td>
+0.837
+</td>
+<td>
+0.218
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.225)
+</td>
+<td>
+(0.695)
+</td>
+<td>
+(0.253)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-1.422
+</td>
+<td>
+</td>
+<td>
+-1.315
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.801)
+</td>
+<td>
+</td>
+<td>
+(1.633)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+74
+</td>
+<td>
+74
+</td>
+<td>
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.186
+</td>
+<td>
+0.359
+</td>
+<td>
+0.186
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.127
+</td>
+<td>
+0.064
+</td>
+<td>
+0.126
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+3.118<sup>**</sup> (df = 5; 68)
+</td>
+<td>
+5.606<sup>***</sup> (df = 5; 50)
+</td>
+<td>
+16.904<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></em></sup><em>p&lt;0.1; <sup><strong></strong></sup><strong>p&lt;0.05; <sup></sup></strong></em>p&lt;0.01
+</td>
+</tr>
+</tbody></table>
+<p>En comparant les trois modèles, nous observons que le modèle à effets fixes (within) se distingue par un R² plus élevé (0,359 contre 0,186 pour les modèles à effets aléatoires et poolé). Cela suggère que le modèle à effets fixes offre une meilleure qualité d’ajustement et explique une plus grande part de la variation de la variable dépendante (la croissance du PIB) par rapport aux modèles à effets aléatoires et poolé.</p>
+<p>Bien que le R² soit un indicateur utile, il ne doit pas être le seul critère de choix du modèle. Néanmoins, cette première différence en termes de R² montre que le modèle à effets fixes pourrait mieux capturer les effets spécifiques propres à chaque pays, offrant ainsi une explication plus précise des dynamiques de croissance observées.</p>
+</section>
+</section>
+<section id="choix-du-modèle-le-plus-approprié" class="level1">
+<h1>Choix du modèle le plus approprié</h1>
+<p>Afin de choisir le modèle le plus adapté, nous avons utilisé des tests statistiques tels que le test de Hausman, qui compare les résultats des modèles à effets fixes et à effets aléatoires. Le test de Hausman nous permet de savoir si le modèle à effets aléatoires est approprié ou si nous devrions plutôt utiliser le modèle à effets fixes.</p>
+<table style="text-align:center">
+<caption>
+<strong>Hausman Test Results</strong>
+</caption>
+<tbody><tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Statistic
+</td>
+<td>
+DF
+</td>
+<td>
+P_Value
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+chisq
+</td>
+<td>
+9.022
+</td>
+<td>
+5
+</td>
+<td>
+0.108
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</tbody></table>
+<p>Il convient tout d’abord de souligner que le test d’Hausman dans R n’est pas parfait et doit donc être interprété avec prudence. En effet, ce test repose sur l’hypothèse que le modèle à effets aléatoires est le modèle “correct”.</p>
+<p>Dans notre cas, la p-value du test d’Hausman est de 0,108, ce qui implique que nous ne pouvons pas rejeter l’hypothèse nulle. Autrement dit, il n’y a pas suffisamment de preuves pour privilégier le modèle à effets fixes par rapport au modèle à effets aléatoires. En conclusion, d’après ce test, le modèle à effets aléatoires semble être le plus approprié pour nos données.</p>
+<p>En choisissant de conserver le modèle à effets aléatoires, nous faisons l’hypothèse qu’il existe une faible corrélation entre les effets individuels et les variables explicatives. Toutefois, sur la base de nos connaissances du sujet, il est difficile de démontrer que les effets individuels dans notre contexte ne sont pas corrélés avec les variables explicatives. En conséquence, bien que le test d’Hausman suggère l’usage d’un modèle à effets aléatoires, nous préférons retenir le modèle à effets fixes (within), qui semble mieux adapté à la structure des données et à notre compréhension du contexte.</p>
+<p>Étant donné la diversité des pays dans notre échantillon, qui inclut des économies à des stades de développement différents, il est probable que des effets spécifiques à chaque pays jouent un rôle important dans la détermination de la croissance du PIB. Le modèle à effets fixes (within) permet de capturer ces différences structurelles et d’isoler l’impact des variables explicatives sur la croissance, sans interférence des particularités nationales non observées.</p>
+<p>De plus, bien que le modèle à effets aléatoires soit adapté à certaines situations où les effets individuels sont supposés être non corrélés avec les variables explicatives, il peut entraîner des biais de spécification lorsque cette hypothèse est violée. Le modèle à effets fixes, en revanche, offre des estimations plus robustes et permet de prendre en compte les effets spécifiques à chaque pays. Cela améliore la précision de nos résultats, particulièrement dans un cadre où les politiques économiques et les structures économiques peuvent varier considérablement d’un pays à l’autre.</p>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="http://localhost:3668/#conclusion" style="font: 1em / 1 anchorjs-icons; margin-left: 0.1875em; padding-right: 0.1875em; padding-left: 0.1875em;"></a></h2>
+<p>Cette section nous a permis de présenter et de comparer trois spécifications possibles pour analyser la croissance économique avec des données de panel : le modèle poolé, le modèle within (à effets fixes) et le modèle à effets aléatoires. Les résultats obtenus et les tests de spécification ont guidé notre choix du modèle le plus adapté à notre étude, le modèle à effets aléatoires (within).</p>
+<p>L’objectif de cette étude étant de mieux comprendre les déterminants de la croissance économique dans différents pays, il était primordial d’adopter un modèle qui prend en compte les différences économiques, sociales et politiques spécifiques à chaque pays. Le modèle à effets fixes, en considérant ces différences comme des facteurs individuels non observés, est donc particulièrement pertinent dans ce contexte.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+
+<script>window.backupDefine = window.define; window.define = undefined;</script>
+<script type="text/javascript" src="./Étude Économétrique - Croissance économique_files/quarto-preview.js.téléchargement"></script>
+<script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+<script type="text/javascript">
+  const options = {
+    origin: "",
+    search: "",
+    inputFile: "C:\Users\rache\Documents\MECEN\M1\Semestre 1\Micro econométrie\DM_econo\Econométrie_projet_final.qmd",
+    isPresentation: false
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    window.QuartoPreview.init(options);
+  });
+</script>
+<div><div dir="ltr" class="fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"></div></div><div id="my-app"></div><i tabindex="0" role="none" data-tabster-dummy="" aria-hidden="true" style="position: fixed; height: 1px; width: 1px; opacity: 0.001; z-index: -1; content-visibility: hidden; top: 0px; left: 0px;"></i></body></html>
